@@ -3,6 +3,7 @@ import cors from "cors";
 import DB_CONNECTION from "./Database/index.js";
 import customerRoute from "./Services/Customers/customer.route.js";
 import orderRoute from "./Services/Orders/order.route.js";
+import productRoute from "./Services/Products/product.route.js";
 import Dispatch from "./Broker/Dispatch.js";
 
 const app = express();
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 // ! versioning my api...
 app.use("/api/v1/customer", customerRoute);
 app.use("/api/v1/order", orderRoute);
+app.use("/api/v1/product", productRoute);
 
 app.use((req, res, next) => {
   res.status(404).send("Sorry can't find that!");
